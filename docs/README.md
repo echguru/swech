@@ -11,7 +11,7 @@ But this process ties up the depositor with an inability to unstake their ECH qu
 If the trend of market turns bearish, savvy traders would want to exit their positions as soon as possible. In preparation for such an event, most traders do not like to stake/bond/lock their tokens to stay liquid 24x7 round the clock, waiting to counter any potential downturns.
 
 ### Over-speeding penalty
-But this strategy is extremely poor in terms of capital-efficiency. These traders sacrifice all the juicy yield Echelon has to offer! And these opportunity costs come at the benefit of a "potential but unlikely" scenario of a huge market downturn. The penalty for this over-cautiousness is getting separated from your darling APY.
+But this strategy is extremely poor in terms of capital-efficiency. These traders sacrifice all the juicy yield Echelon has to offer! And these opportunity costs come at the benefit of a "potential but unlikely" scenario of a huge market downturn. The penalty for this over-cautiousness is harsh - it separates you from your darling APY.
 
 ## What does SWECH do?
 What if there was a middle ground? What if we could come close to the lovely APR, without putting ourselves into a lockup?
@@ -37,16 +37,19 @@ With the advanced tokenomic design, each SWECH is always backed implicity by atl
 - There are NO team allocations
 - There is NO fees to stake ECH
 - There is NO commission or performance fee
+
 ### Yield Distribution
 - All the ECH earned from the staked ECH is funneled back to farmers.
 
 ## Wait, what!? Farmers?
 Swech utlizes an innovative design, first of its kind in the industry. Instead of delivering the yield to ECH depositors, the multi-token yield is rewarded to the Liquidity Providers of a special SWECH/WECH "stable" pair.
+
 ### Liquidity Pool
 The SWECH/WECH liquidity resides on a special pool, also known as a StableSwap 2pool, made famous by Curve Finance.
 
 ## Swech-Ex: The Swech Exchange
 Swech-Ex is home to the main Liquidity pool composed of WECH + SWECH tokens. This DEX has only one pair - The WECH/SWECH pool.
+
 ### Based on Curve.fi V2
 - Near-zero slippage trades
 - Almost absent price impact
@@ -92,15 +95,19 @@ As long as the TWAP price of SWECH in the last epoch is above 0.99 ECH, the rewa
 In epochs where TWAP is beneath 0.99, the ECH rewards are first used to buyback SWECH, and then that SWECH is paid out as rewards.
 
 ## Minting, Collateral Backing, Supply & Market forces
-The maximum supply of SWECH can theoretically be as much as the supply of ECH itself. Initially there will be a supply of 0 SWECH, and it will increase by the exact amount of ECH that is deposited into the protocol
+The maximum supply of SWECH can theoretically be as much as the supply of ECH itself. Initially there will be a supply of 0 SWECH, and it will increase by the exact amount of ECH that is deposited into the protocol.
+
 ### Minting SWECH
 SWECH tokens will forever be mintable at a price of 1 ECH per SWECH.
 - There will never be any fees for converting ECH to SWECH.
+
 ### Smart-Router
 Smart router is an intelligent, chain-aware smart contract that provides a multitude of benefits and convenience to its user. It also protects our users against any potential MEV attacks.
+
 #### Buying SWECH
 Our platform will not always mint new SWECH for ECH deposits. Instead our platform will provide the best value to the user by combining market-buying of SWECH using ECH and direct minting.
 - For example, if Price of SWECH is 0.995 ECH, the smart-router would use the deposit to first buy SWECH from the Swech-Ex as long as its Price-Impact does not move the price of SWECH above 1 ECH. Beyond that point, our smart-router would mint SWECH 1:1 for ECH using the remainder.
+
 #### Staking SWECH/WECH Liquidity Tokens
 The smart router is really smart. Users just need to send it some ECH, and it will automatially funnel it through the a mixture of routes and optimize it for the highest benefit. Then it will automatically convert this into the SWECH/WECH LP tokens, and finally stake it into the multi-reward farm, on behalf of the user!
 
@@ -110,20 +117,27 @@ The main pair at Swech-Ex will be home to the biggest SWECH/WECH liquidity pool,
 
 ## The Peg
 There is no hard "peg" for SWECH, but a target-price of 1 SWECH = 1 ECH. At all points, irrespective of the price, we will always have a minimum of 1 ECH backing each and every SWECH issued by the protocol. At all points, lightweight re-pegging forces remain active to counter each and every miniscule price movement beneath 1.
+
 ### Buyback threshold (BT)
 The price of SWECH below which moderate re-pegging forces become active is the BT, or Buyback threshold. This is initially setup at 0.99 ECH per SWECH, and can be reconfigured by a governance proposal, voted upon only by SWECH holders and farmers.
+
 ### Extreme Emergency Threshold (EET)
-The Price of SWECH under which the strong re-pegging forces become active is defined as te EET. It uses our Smart Router for MEV-proofing.
+The Price of SWECH under which the strong re-pegging forces become active is defined as the EET. It uses our Smart Router for MEV-proofing.
+
 ### Above the peg?
 In rare situations, there is a chance that price of SWECH goes above 1 ECH. In such a case, we encourage everyone to repeatedly mint SWECH for 1 ECH and sell it for a price of more than 1 to realize a profit by arbitration, and help us keep the price in a tight range around 1 ECH.
+
 ## But, can SWECH de-peg?
 Yes, there is indeed a possibility where SWECH can lose its peg. This could happen when a large amount of SWECH supply gets sold on the market suddenly.
+
 ### Now, lets see the impossibility of this
 - Assume, there is 2 million ECH and 2 million SWECH in the liquidity pool, and half of it belongs to just one person, Alice. If Alice removes her LP, she will get 1M ECH & 1M SWECH, and the pool will have 1M ECH + 1M SWECH. Now if Alice wants to sell 1M SWECH (that is 50% of the supply, which is a super-extreme case), the pool will still give her 930K ECH in return. Despite this trade, the Price will only move to 0.93 ECH per SWECH.
 - Our novel Swech-Ex StableSwap approach makes even huge trades have negligible impacts on price of SWECH. Learn more about this design from Miguel M. here: [miguelmota.com/blog/understanding-stableswap-curve](https://miguelmota.com/blog/understanding-stableswap-curve/)
 - In contrast, a similar trade on a traditional DEX like uniswap would have given Alice just 500K, and moved the price of SWECH to 0.25 ECH, for a -75% impact. With our Swech-Ex StableSwap model, we can absorb this trade with just a -7% price change to 0.93 ECH.
+
 ### Restoring the Peg
 There are 3 main mechanisms that enable the protocol to restore the peg on its own.
+
 #### 1. Rechanneled Buy-pressure
 Any new user who wants to stake ECH in the Swech Protocol will have their ECH redirected into buying it from the open market from the Swech-Exchange via the Smart Router.
 - Benefit to User:
@@ -154,6 +168,7 @@ Features of EET are:
 
 ## For Validators
 Validators are the ultimate beneficiaries of this Product. They get bestowed with an almost-eternal delegation if they run their operations smoothly.
+
 ### Bribes
 Validators can Bribe the protocol with tokens, NFTs or other "kind" to drive the Protocol's Staked ECH towards them.
 - These Bribes would be delivered to our stakers natively via our Farm, alongside the ongoing ECH, SWECH & other rewards to boost the yield of our farmers even more.
@@ -170,6 +185,7 @@ Contractual holders, multisig members, DAOs, simple holders and farmers, all hav
 
 ## Governing Echelon
 By virtue of a stake in Echelon, Swech protocol has the right to vote on all on-chain Governance Proposals of the Echelon Blockchain.
+
 ### Right to vote
 Each governance proposal at Echelon will be mirrored automatically at the Swech Governance Portal, which can be voted by SWECH holders & farmers.
 
